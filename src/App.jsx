@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages
 import Home from "./assets/css/pages/Home/Home";
 import Characters from "./assets/css/pages/Characters/Characters";
+import ComicsByCharId from "./assets/css/pages/ComicsByCharId/ComicsByCharId";
 import Comics from "./assets/css/pages/Comics/Comics";
 // Components
 import Header from "./assets/css/components/Header/Header";
 // Style
 import "./App.css";
+
+const marvelUrl = "http://localhost:3000/marvel";
 
 function App() {
   return (
@@ -18,8 +21,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/marvel" element={<Home />} />
-          <Route path="/marvel/characters" element={<Characters />} />
-          <Route path="/marvel/comics" element={<Comics />} />
+          <Route
+            path="/marvel/characters"
+            element={<Characters marvelUrl={marvelUrl} />}
+          />
+          <Route
+            path="/marvel/comics/:charId"
+            element={<ComicsByCharId marvelUrl={marvelUrl} />}
+          />
+          <Route
+            path="/marvel/comics"
+            element={<Comics marvelUrl={marvelUrl} />}
+          />
         </Routes>
       </Router>
     </>

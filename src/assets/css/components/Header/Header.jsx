@@ -7,6 +7,7 @@ const Header = () => {
       <nav>
         <Link to="/marvel/characters">Personnages</Link>
         <Link to="/marvel/comics">Comics</Link>
+        <p>Favoris</p>
       </nav>
     </header>
   );
