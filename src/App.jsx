@@ -1,5 +1,4 @@
 // Packages
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages
 import Home from "./assets/pages/Home/Home";
@@ -9,7 +8,7 @@ import Comics from "./assets/pages/Comics/Comics";
 // Components
 import Header from "./assets/components/Header/Header";
 // Style
-import "./App.css";
+import "./assets/css/App.css";
 
 const marvelUrl = "http://localhost:3000/marvel";
 

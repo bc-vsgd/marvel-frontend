@@ -10,7 +10,7 @@ const Character = ({ data }) => {
           src={`${thumbnail.path}/portrait_small.${thumbnail.extension}`}
           alt="Character picture"
         />
-        <p>{name}</p>
+        <h2>{name}</h2>
         <p>{description}</p>
       </div>
     </Link>

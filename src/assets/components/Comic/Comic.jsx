@@ -7,7 +7,7 @@ const Comic = ({ data }) => {
         src={`${thumbnail.path}/portrait_small.${thumbnail.extension}`}
         alt="Comic picture"
       />
-      <p>{title}</p>
+      <h2>{title}</h2>
       <p>{description}</p>
     </div>
   );

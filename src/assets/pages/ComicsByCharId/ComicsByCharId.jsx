@@ -1,30 +1,18 @@
 // Packages
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
+// Functions
+import fetchData from "../../utils/fetchData";
 // Components
 import Comic from "../../components/Comic/Comic";
-import ComicByCharId from "../../components/ComicByCharId/ComicByCharId";
 
 const ComicsByCharId = ({ marvelUrl }) => {
   const { charId } = useParams();
-  console.log("comics by char, charId >>>> ", charId);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      //   console.log("Comics by char, fetchData");
-      try {
-        const { data } = await axios.get(`${marvelUrl}/comics/${charId}`);
-        console.log("Comics by char id >> data >> ", data);
-        setData(data);
-      } catch (error) {
-        console.log(error.response);
-      }
-      setIsLoading(false);
-    };
-    fetchData();
+    fetchData(`${marvelUrl}/comics/${charId}`, setData, setIsLoading);
   }, []);
 
   return !isLoading ? (

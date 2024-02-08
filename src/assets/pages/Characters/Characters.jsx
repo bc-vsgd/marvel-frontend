@@ -1,32 +1,43 @@
 // Packages
 import { useState, useEffect } from "react";
-import axios from "axios";
+// Functions
+import fetchData from "../../utils/fetchData";
 // Components
+import SearchBar from "../../components/SearchBar/SearchBar";
+import Pagination from "../../components/Pagination/Pagination";
 import Character from "../../components/Character/Character";
 
 const Characters = ({ marvelUrl }) => {
-  // console.log(marvelUrl);
+  const [page, setPage] = useState(1);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(`${marvelUrl}/characters`);
-        console.log("characters, data >>> ", data);
-        setData(data);
-      } catch (error) {
-        console.log(error.response);
-      }
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
+    fetchData(
+      `${marvelUrl}/characters?name=${search}&page=${page}`,
+      setData,
+      setIsLoading
+    );
+    setIsSearching(false);
+  }, [isSearching, page]);
 
   return !isLoading ? (
-    <main>
-      <h1>Personnages</h1>
+    <main className="characters-main-div">
+      <div>
+        <h1>Personnages</h1>
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+          setIsLoading={setIsLoading}
+          setIsSearching={setIsSearching}
+          setPage={setPage}
+          type="personnage"
+        />
+        <Pagination page={page} setPage={setPage} count={data.data.count} />
+      </div>
+
       {data.data.results.map((result, index) => {
         return <Character key={index} data={result} />;
       })}
