@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages
-import Home from "./assets/css/pages/Home/Home";
-import Characters from "./assets/css/pages/Characters/Characters";
-import ComicsByCharId from "./assets/css/pages/ComicsByCharId/ComicsByCharId";
-import Comics from "./assets/css/pages/Comics/Comics";
+import Home from "./assets/pages/Home/Home";
+import Characters from "./assets/pages/Characters/Characters";
+import ComicsByCharId from "./assets/pages/ComicsByCharId/ComicsByCharId";
+import Comics from "./assets/pages/Comics/Comics";
 // Components
-import Header from "./assets/css/components/Header/Header";
+import Header from "./assets/components/Header/Header";
 // Style
 import "./App.css";
 
