@@ -7,11 +7,9 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import Pagination from "../../components/Pagination/Pagination";
 import Comic from "../../components/Comic/Comic";
 
-const Comics = ({ marvelUrl }) => {
-  const [page, setPage] = useState(1);
+const Comics = ({ marvelUrl, page, setPage, search, setSearch }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [search, setSearch] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
@@ -21,7 +19,7 @@ const Comics = ({ marvelUrl }) => {
       setIsLoading
     );
     setIsSearching(false);
-  }, [isSearching, page]);
+  }, [search, isSearching, page]);
 
   return !isLoading ? (
     <main>

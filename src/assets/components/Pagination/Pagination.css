@@ -1,0 +1,12 @@
+.pagination-div {
+  display: flex;
+}
+.pagination-div > div {
+  width: 60px;
+}
+.pagination-div > div:nth-child(2) {
+  display: flex;
+}
+.pagination-div input {
+  width: 40px;
+}

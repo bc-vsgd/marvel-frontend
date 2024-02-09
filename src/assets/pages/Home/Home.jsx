@@ -1,8 +1,11 @@
+import { Navigate } from "react-router-dom";
+
 const Home = () => {
   return (
-    <main>
-      <div>Home</div>
-    </main>
+    <Navigate to="/marvel/characters" />
+    // <main>
+    //   <div>Home</div>
+    // </main>
   );
 };
 

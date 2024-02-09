@@ -1,28 +1,46 @@
 const Pagination = ({ page, setPage, count }) => {
+  // Number of pages
+  const pages = Math.ceil(count / 100);
   return (
-    <div>
-      <button
-        onClick={() => {
-          if (page > 1) {
-            setPage(page - 1);
-          }
-        }}
-      >
-        -
-      </button>
-      <span>Page {page}</span>
-      <button
-        onClick={() => {
-          const pages = Math.ceil(count / 100);
-          //   console.log("button +, pages >>>> ", pages);
-          //   console.log("button +, count >>>> ", count);
-          if (page < pages) {
-            setPage(page + 1);
-          }
-        }}
-      >
-        +
-      </button>
+    <div className="pagination-div">
+      <div>
+        {page > 1 && (
+          <button
+            onClick={() => {
+              if (page > 1) {
+                setPage(page - 1);
+              }
+            }}
+          >
+            -
+          </button>
+        )}
+      </div>
+      <div>
+        <label>Page</label>{" "}
+        <input
+          type="number"
+          value={page}
+          onChange={(event) => {
+            if (event.target.value) {
+              setPage(Number(event.target.value));
+            }
+          }}
+        />
+      </div>
+      <div>
+        {page < pages && (
+          <button
+            onClick={() => {
+              if (page < pages) {
+                setPage(page + 1);
+              }
+            }}
+          >
+            +
+          </button>
+        )}
+      </div>
     </div>
   );
 };
