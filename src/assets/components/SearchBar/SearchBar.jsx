@@ -9,7 +9,7 @@ const SearchBar = ({
   type,
 }) => {
   return (
-    <div>
+    <div className="searchbar-div">
       <input
         type="text"
         value={search}

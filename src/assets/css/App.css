@@ -1,11 +1,85 @@
 @import "./reset.css";
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 @import "../components/Header/Header.css";
-@import "../pages/Characters/Characters.css";
+@import "../pages/ComicsByCharId/ComicsByCharId.css";
+@import "../components/SearchBar/SearchBar.css";
 @import "../components/Pagination/Pagination.css";
-@import "../components/Character/Character.css";
+@import "../components/Footer/Footer.css";
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
 h1 {
   font-size: 36px;
 }
 h2 {
-  font-size: 24px;
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+.head-div {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+/* Characters or comics div */
+.results-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.results-div a {
+  color: black;
+}
+/* One character or one comic div */
+.results-div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  width: 250px;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+.results-div .first-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.results-div h2 {
+  min-height: 40px;
+}
+.results-div p {
+  font-size: 14px;
+  height: 120px;
+  overflow-y: scroll;
+  padding: 0 10px;
+}
+.results-div .button-div {
+  display: flex;
+  justify-content: center;
+}
+.results-div button {
+  width: 150px;
+  font-size: 16px;
+  background-color: white;
+  padding: 5px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+.results-div .favorites-invisible {
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }

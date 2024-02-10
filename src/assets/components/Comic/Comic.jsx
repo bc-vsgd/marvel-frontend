@@ -5,19 +5,23 @@ const Comic = ({ data }) => {
   const { thumbnail, _id, title, description } = data;
   return (
     <div>
-      <img
-        src={`${thumbnail.path}/portrait_small.${thumbnail.extension}`}
-        alt="Comic picture"
-      />
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <p
-        onClick={() => {
-          Cookies.set(_id, "comic");
-        }}
-      >
-        Ajouter aux favoris
-      </p>
+      <div className="first-div">
+        <img
+          src={`${thumbnail.path}/portrait_incredible.${thumbnail.extension}`}
+          alt="Comic picture"
+        />
+        <h2>{title}</h2>
+        {description ? <p>{description}</p> : <p>No description</p>}
+      </div>
+      <div className="button-div favorites-invisible">
+        <button
+          onClick={() => {
+            Cookies.set(_id, JSON.stringify(data));
+          }}
+        >
+          Ajouter aux favoris
+        </button>
+      </div>
     </div>
   );
 };

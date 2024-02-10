@@ -22,20 +22,25 @@ const Comics = ({ marvelUrl, page, setPage, search, setSearch }) => {
   }, [search, isSearching, page]);
 
   return !isLoading ? (
-    <main>
+    <main className="comics-main-div container">
+      <div className="head-div">
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+          setIsLoading={setIsLoading}
+          setIsSearching={setIsSearching}
+          setPage={setPage}
+          type="titre"
+        />
+        <Pagination page={page} setPage={setPage} count={data.data.count} />
+      </div>
       <h1>Comics</h1>
-      <SearchBar
-        search={search}
-        setSearch={setSearch}
-        setIsLoading={setIsLoading}
-        setIsSearching={setIsSearching}
-        setPage={setPage}
-        type="titre"
-      />
-      <Pagination page={page} setPage={setPage} count={data.data.count} />
-      {data.data.results.map((result, index) => {
-        return <Comic key={index} data={result} />;
-      })}
+
+      <div className="results-div">
+        {data.data.results.map((result, index) => {
+          return <Comic key={index} data={result} />;
+        })}
+      </div>
     </main>
   ) : (
     <main>

@@ -22,9 +22,8 @@ const Characters = ({ marvelUrl, page, setPage, search, setSearch }) => {
   }, [search, isSearching, page]);
 
   return !isLoading ? (
-    <main className="characters-main-div">
-      <div>
-        <h1>Personnages</h1>
+    <main className="characters-main-div main-div container">
+      <div className="head-div">
         <SearchBar
           search={search}
           setSearch={setSearch}
@@ -35,10 +34,14 @@ const Characters = ({ marvelUrl, page, setPage, search, setSearch }) => {
         />
         <Pagination page={page} setPage={setPage} count={data.data.count} />
       </div>
-
-      {data.data.results.map((result, index) => {
-        return <Character key={index} data={result} />;
-      })}
+      <div>
+        <h1>Personnages</h1>
+      </div>
+      <div className="results-div">
+        {data.data.results.map((result, index) => {
+          return <Character key={index} data={result} />;
+        })}
+      </div>
     </main>
   ) : (
     <main>

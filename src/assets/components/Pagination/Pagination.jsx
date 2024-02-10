@@ -1,9 +1,11 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Pagination = ({ page, setPage, count }) => {
   // Number of pages
   const pages = Math.ceil(count / 100);
   return (
     <div className="pagination-div">
-      <div>
+      <div className="button-div">
         {page > 1 && (
           <button
             onClick={() => {
@@ -12,23 +14,23 @@ const Pagination = ({ page, setPage, count }) => {
               }
             }}
           >
-            -
+            <FontAwesomeIcon
+              icon="fa-solid fa-chevron-left"
+              className="fa-solid"
+            />
           </button>
         )}
       </div>
       <div>
         <label>Page</label>{" "}
         <input
-          type="number"
+          type="text"
           value={page}
-          onChange={(event) => {
-            if (event.target.value) {
-              setPage(Number(event.target.value));
-            }
-          }}
+          // To avoid console error message
+          onChange={() => {}}
         />
       </div>
-      <div>
+      <div className="button-div">
         {page < pages && (
           <button
             onClick={() => {
@@ -37,7 +39,10 @@ const Pagination = ({ page, setPage, count }) => {
               }
             }}
           >
-            +
+            <FontAwesomeIcon
+              icon="fa-solid fa-chevron-right"
+              className="fa-solid"
+            />
           </button>
         )}
       </div>
