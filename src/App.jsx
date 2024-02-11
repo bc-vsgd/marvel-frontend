@@ -26,7 +26,9 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 // import { faUser } from "@fortawesome/free-regular-svg-icons";
 library.add(faChevronRight, faChevronLeft, faGithub, faLinkedin);
 
-const marvelUrl = "http://localhost:3000/marvel";
+const marvelUrl =
+  // "http://localhost:3000/marvel" ||
+  "https://site--home--r6xgg7xm7vcz.code.run/marvel";
 
 function App() {
   const [page, setPage] = useState(1);
