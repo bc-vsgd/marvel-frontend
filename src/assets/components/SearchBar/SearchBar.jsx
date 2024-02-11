@@ -1,3 +1,6 @@
+// Packages
+import { useState } from "react";
+// Functions
 import searchBar from "../../utils/searchBar";
 
 const SearchBar = ({
@@ -8,23 +11,26 @@ const SearchBar = ({
   setPage,
   type,
 }) => {
+  const [searchValue, setSearchValue] = useState(search || "");
   return (
     <div className="searchbar-div">
       <input
         type="text"
-        value={search}
+        value={searchValue}
         placeholder={`Recherche par ${type}`}
         onKeyDown={(event) => {
           if (event.code === "Enter") {
+            setSearch(searchValue);
             searchBar(setIsLoading, setIsSearching, setPage);
           }
         }}
         onChange={(event) => {
-          setSearch(event.target.value);
+          setSearchValue(event.target.value);
         }}
       />
       <button
         onClick={() => {
+          setSearch(searchValue);
           searchBar(setIsLoading, setIsSearching, setPage);
         }}
       >

@@ -8,7 +8,13 @@ const Header = ({ setPage, setSearch }) => {
     <header>
       <div>
         <div>
-          <Link to="/marvel">
+          <Link
+            to="/marvel"
+            onClick={() => {
+              setPage(1);
+              setSearch("");
+            }}
+          >
             <img src={logo_marvel} alt="Logo Marvel" />
           </Link>
         </div>
@@ -35,7 +41,6 @@ const Header = ({ setPage, setSearch }) => {
           >
             Comics
           </Link>
-
           <Link to="/marvel/favorites" className="header-nav-link">
             Favoris
           </Link>

@@ -1,4 +1,6 @@
+// Packages
 import Cookies from "js-cookie";
+// Style: common with Character.jsx => in App.css (.results-div)
 
 const Comic = ({ data }) => {
   // data: object with keys: thumbnail, _id, title, description

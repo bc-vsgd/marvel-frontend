@@ -1,6 +1,7 @@
 // Packages
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+// Style: common with Comic.jsx => in App.css (.results-div)
 
 const Character = ({ data }) => {
   // data: object with keys: comics, description, name, thumbnail, _id

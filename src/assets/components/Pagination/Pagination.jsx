@@ -1,6 +1,7 @@
+// Packages
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Pagination = ({ page, setPage, count }) => {
+const Pagination = ({ setIsLoading, page, setPage, count, type }) => {
   // Number of pages
   const pages = Math.ceil(count / 100);
   return (

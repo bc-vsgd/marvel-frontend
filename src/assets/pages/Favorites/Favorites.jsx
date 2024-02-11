@@ -1,6 +1,5 @@
 // Packages
 import Cookies from "js-cookie";
-// Functions
 // Components
 import Character from "../../components/Character/Character";
 import Comic from "../../components/Comic/Comic";
@@ -24,12 +23,12 @@ const Favorites = () => {
   }
 
   return (
-    <main className="container">
+    <main className="container favorites-main-div">
       <div>
         <h1>Favoris</h1>
         {characters.length !== 0 && (
           <>
-            <h1>Personnages</h1>
+            <p className="favorites-subtitle">Personnages</p>
             <div className="results-div">
               {characters.map((character, index) => {
                 return <Character key={index} data={character} />;
@@ -39,7 +38,7 @@ const Favorites = () => {
         )}
         {comics.length !== 0 && (
           <>
-            <h1>Comics</h1>
+            <p className="favorites-subtitle">Comics</p>
             <div className="results-div">
               {comics.map((comic, index) => {
                 return <Comic key={index} data={comic} />;

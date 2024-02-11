@@ -1,0 +1,19 @@
+.favorites-main-div > div {
+  margin-top: 235px;
+}
+.favorites-main-div h1 {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid red;
+  background-color: white;
+  position: sticky;
+  top: 183px;
+}
+.favorites-subtitle {
+  font-size: 30px;
+  padding-top: 30px;
+}
+/* In App.css */
+/* .favorites-main-div .favorites-invisible {
+  display: none;
+} */
