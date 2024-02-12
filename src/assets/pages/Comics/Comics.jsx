@@ -51,7 +51,7 @@ const Comics = ({ marvelUrl, page, setPage, search, setSearch }) => {
 
       <div className="results-div">
         {data.data.results.map((result, index) => {
-          return <Comic key={index} data={result} />;
+          return <Comic key={index} data={result} btnClass="button-div" />;
         })}
       </div>
     </main>

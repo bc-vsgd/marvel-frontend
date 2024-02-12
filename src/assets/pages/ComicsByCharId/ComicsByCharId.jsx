@@ -1,9 +1,11 @@
 // Packages
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 // Functions
 import fetchData from "../../utils/fetchData";
 // Components
+import Loading from "../../components/Loading/Loading";
 import Comic from "../../components/Comic/Comic";
 
 const ComicsByCharId = ({ marvelUrl }) => {
@@ -12,6 +14,8 @@ const ComicsByCharId = ({ marvelUrl }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // To reload
+    setIsLoading(true);
     fetchData(`${marvelUrl}/comics/${charId}`, setData, setIsLoading);
   }, []);
 
@@ -36,7 +40,7 @@ const ComicsByCharId = ({ marvelUrl }) => {
           <div className="button-div">
             <button
               onClick={() => {
-                Cookies.set(_id, JSON.stringify(data));
+                Cookies.set(data.data._id, JSON.stringify(data.data));
               }}
             >
               Ajouter aux favoris
@@ -48,13 +52,14 @@ const ComicsByCharId = ({ marvelUrl }) => {
       <h2 className="related-h2">Related</h2>
       <div className="results-div">
         {data.data.comics.map((comic, index) => {
-          return <Comic key={index} data={comic} />;
+          return <Comic key={index} data={comic} btnClass="button-div" />;
         })}
       </div>
     </main>
   ) : (
     <main>
-      <div>Loading ...</div>
+      <Loading />
+      {/* <div>Loading ...</div> */}
     </main>
   );
 };

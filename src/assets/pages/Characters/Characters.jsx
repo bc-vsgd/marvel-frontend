@@ -50,7 +50,7 @@ const Characters = ({ marvelUrl, page, setPage, search, setSearch }) => {
       </div>
       <div className="results-div">
         {data.data.results.map((result, index) => {
-          return <Character key={index} data={result} />;
+          return <Character key={index} data={result} btnClass="button-div" />;
         })}
       </div>
     </main>

@@ -92,8 +92,11 @@ a {
   border-radius: 20px;
 }
 /* Must be read after .results-div */
-.favorites-main-div .favorites-invisible {
+.favorites-main-div .favorites {
   display: none;
+}
+.button-div button:hover {
+  cursor: pointer;
 }
 /* Scroll bar */
 ::-webkit-scrollbar {

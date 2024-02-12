@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 // Style: common with Comic.jsx => in App.css (.results-div)
 
-const Character = ({ data }) => {
+const Character = ({ data, btnClass }) => {
   // data: object with keys: comics, description, name, thumbnail, _id
   const { thumbnail, name, description, _id } = data;
+  const favBtnClasses = [];
   return (
     <div>
       <Link className="first-div" to={`/marvel/comics/${_id}`}>
@@ -16,7 +17,7 @@ const Character = ({ data }) => {
         <h2>{name}</h2>
         {description ? <p>{description}</p> : <p>No description</p>}
       </Link>
-      <div className="button-div favorites-invisible">
+      <div className={btnClass}>
         <button
           onClick={() => {
             Cookies.set(_id, JSON.stringify(data));

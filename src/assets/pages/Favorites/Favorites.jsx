@@ -31,7 +31,13 @@ const Favorites = () => {
             <p className="favorites-subtitle">Personnages</p>
             <div className="results-div">
               {characters.map((character, index) => {
-                return <Character key={index} data={character} />;
+                return (
+                  <Character
+                    key={index}
+                    data={character}
+                    btnClass={"button-div favorites"}
+                  />
+                );
               })}
             </div>
           </>
@@ -41,7 +47,13 @@ const Favorites = () => {
             <p className="favorites-subtitle">Comics</p>
             <div className="results-div">
               {comics.map((comic, index) => {
-                return <Comic key={index} data={comic} />;
+                return (
+                  <Comic
+                    key={index}
+                    data={comic}
+                    btnClass="button-div favorites"
+                  />
+                );
               })}
             </div>
           </>
